@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql
+    restart: unless-stopped
+    env_file: ./.env
+    environment:
+      - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQLDB_DATABASE
+    ports:
+      - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
+    volumes: 
+      - db-config:/etc/mysql
+      - db-data:/var/lib/mysql
+      - ./db/backup/files/:/data_backup/data
+    container_name: 'webchallenge-database'
+  
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: node-mysql-app
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=$MYSQLDB_USER
+      - DB_PASSWORD=$MYSQLDB_ROOT_PASSWORD
+      - DB_NAME=$MYSQLDB_DATABASE
+      - DB_PORT=$MYSQLDB_DOCKER_PORT
+    depends_on:
+      - mysqldb
+    stdin_open: false
+    tty: true
+    container_name: 'webchallenge-backend'
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    env_file: ./.env
+    ports:
+      - $VUE_LOCAL_PORT:$VUE_DOCKER_PORT
+    stdin_open: false
+    tty: true
+    container_name: 'webchallenge-frontend'
+
+
+volumes: 
+  db-config:
+  db-data:

@@ -1,0 +1,196 @@
+{
+    "info": {
+        "name": "CTF Challenge"
+    },
+    "item": [{
+            "name": "Start",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "localhost:3000",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000"
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Register",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"password\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "localhost:3000/register",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "register"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"username\": \"user\",\r\n    \"password\": \"password\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "localhost:3000/login",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Init 2fa",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "x-access-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE2NzYwMTk4NjksImV4cCI6MTY3NjAyMDA0OX0.6FHMCOW0eosio2T-iFqbIyoIyRg7hmtZ4nGIxTE2Al4",
+                    "type": "default"
+                }],
+                "url": {
+                    "raw": "localhost:3000/init2fa",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "init2fa"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login 2FA",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "x-access-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE2NzYwMTk4NjksImV4cCI6MTY3NjAyMDA0OX0.6FHMCOW0eosio2T-iFqbIyoIyRg7hmtZ4nGIxTE2Al4",
+                    "type": "default"
+                }],
+                "url": {
+                    "raw": "localhost:3000/login/2fa",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "login",
+                        "2fa"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Login 2FA 2",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "x-access-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE2NzYwMjAyNzUsImV4cCI6MTY3NjAyMDQ1NX0.Ko20jCblmzRCkaOR7bvLa_0DzzQ8ZhTE08r_DZMbjBI",
+                    "type": "default"
+                }],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"usertwoFACode\": 172970\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "localhost:3000/login/2fa",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "login",
+                        "2fa"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get info",
+            "request": {
+                "method": "GET",
+                "header": [{
+                    "key": "x-access-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE2NzYwMjAzMDAsImV4cCI6MTY3NjEwNjcwMH0.uVrv5q4UGmxUWqI4ZfbREJ9dScn-Ljgxb1WA5FVbFLw",
+                    "type": "default"
+                }],
+                "url": {
+                    "raw": "localhost:3000/getinfo",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "getinfo"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Logout",
+            "request": {
+                "method": "POST",
+                "header": [{
+                    "key": "x-access-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIiLCJpYXQiOjE2NzYwMjAzMDAsImV4cCI6MTY3NjEwNjcwMH0.uVrv5q4UGmxUWqI4ZfbREJ9dScn-Ljgxb1WA5FVbFLw",
+                    "type": "default"
+                }],
+                "url": {
+                    "raw": "localhost:3000/logout",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "3000",
+                    "path": [
+                        "logout"
+                    ]
+                }
+            },
+            "response": []
+        }
+    ]
+}
